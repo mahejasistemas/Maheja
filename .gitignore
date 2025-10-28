@@ -23,8 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Video files (too large for GitHub)
-*.mp4
+# Large video files (except mp4 which uses Git LFS)
 *.avi
 *.mov
 *.wmv
