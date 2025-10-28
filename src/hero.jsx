@@ -3,17 +3,9 @@ import './hero.css';
 const Hero = () => {
   return (
     <section className="hero">
-      {/* Video Background */}
-      <div className="hero-video-container">
-        <video 
-          className="hero-video" 
-          autoPlay 
-          muted 
-          loop 
-          playsInline
-        >
-          <source src="/fondo.mp4" type="video/mp4" />
-        </video>
+      {/* Image Background */}
+      <div className="hero-image-container">
+        <div className="hero-image"></div>
         <div className="hero-overlay"></div>
       </div>
       
