@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Video files (too large for GitHub)
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
