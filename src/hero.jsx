@@ -1,8 +1,10 @@
 import './hero.css';
 
+
 const Hero = () => {
   return (
-    <section className="hero">
+    <>
+      <section className="hero">
       {/* Image Background */}
       <div className="hero-image-container">
         <div className="hero-image"></div>
@@ -13,11 +15,11 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content-side">
           <div className="hero-content">
-            <h1 className="hero-title animate-fade-up">
+            <h1 className="hero-title animate-fade-up" style={{ background: 'linear-gradient(90deg, #ff416c, #ff0000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
              Transporta tu carga<br />
               con confianza 
             </h1>
-            <p className="hero-subtitle animate-fade-up-delay-1">
+            <p className="hero-subtitle animate-fade-up-delay-1" style={{ color: 'white' }}>
               Desde contenedores hasta maquinaria pesada.<br />
               Cotiza tu flete hoy o rastrea tu envío en tiempo real
             </p>
@@ -40,6 +42,7 @@ const Hero = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
