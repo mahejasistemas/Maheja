@@ -15,26 +15,39 @@ const Hero = () => {
       <div className="hero-container">
         <div className="hero-content-side">
           <div className="hero-content">
-            <h1 className="hero-title animate-fade-up" style={{ background: 'linear-gradient(90deg, #ff416c, #ff0000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
-             Transporte de carga rapido, seguro  y sin complicaciones
+            <span className="hero-badge animate-fade-up">
+              <span className="hero-badge-dot" aria-hidden></span>
+              Logística Profesional
+            </span>
+            <h1 className="hero-title animate-fade-up">
+              Transportamos
+              <span className="hero-accent">Tu Futuro</span>
             </h1>
-            <p className="hero-subtitle animate-fade-up-delay-1" style={{ color: 'white' }}>
-              Transporte de Mercancias en modadidad full o sencillos<br />
-              Tolvas y Contenedores 
+            <p className="hero-subtitle animate-fade-up-delay-1">
+              Soluciones de transporte de carga con más de 15 años de experiencia.
+              Conectamos tu negocio con el mundo de manera eficiente y confiable.
             </p>
             <div className="hero-actions animate-fade-up-delay-2">
-              <a href="#join" className="hero-cta">
-                Cotiza ahora
+              <a href="#cotizar" className="hero-btn primary">
+                Solicitar Cotización
                 <svg className="hero-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-              <div className="hero-eligibility">
-                <svg className="eligibility-icon" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="2"/>
-                  <path d="M6 8L7 9L10 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-                <span>En todo Mexico </span>
+              <a href="#servicios" className="hero-btn secondary">Conocer Servicios</a>
+            </div>
+            <div className="hero-metrics animate-fade-up-delay-2" aria-hidden>
+              <div className="metric">
+                <div className="metric-value">+15</div>
+                <div className="metric-label">Años de Experiencia</div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">500+</div>
+                <div className="metric-label">Clientes Satisfechos</div>
+              </div>
+              <div className="metric">
+                <div className="metric-value">24/7</div>
+                <div className="metric-label">Atención al Cliente</div>
               </div>
             </div>
           </div>
