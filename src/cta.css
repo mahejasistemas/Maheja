@@ -1,0 +1,63 @@
+/* Sección base */
+.cta-section{ background:#fff; padding:24px 16px }
+.cta-container{ max-width: 1100px; margin: 0 auto }
+
+/* Tarjeta de imagen */
+.cta-card{
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--cta-bg) center/cover no-repeat;
+  min-height: 360px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 28px rgba(0,0,0,.12);
+}
+
+.cta-overlay{
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  text-align: center; padding: 28px;
+  color: #fff;
+  background:
+    radial-gradient(1000px circle at 50% 40%, rgba(0,0,0,.20), transparent 45%),
+    linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.28));
+  backdrop-filter: saturate(110%) blur(1px);
+}
+
+.cta-title{
+  margin: 0 0 10px; font-weight: 800; letter-spacing: .2px;
+  font-size: clamp(26px,4.4vw,34px);
+}
+.cta-sub{
+  margin: 0 0 16px; color: #e5e7eb; max-width: 720px;
+  font-size: clamp(13px,2.5vw,15px);
+}
+
+.cta-actions{ display: inline-flex; gap: 10px }
+.cta-btn{
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 16px; border-radius: 10px; text-decoration: none;
+  font-weight: 700; font-size: 14px; transition: transform .18s ease, box-shadow .18s ease;
+}
+.cta-btn.primary{ background:#111; color:#fff }
+.cta-btn.primary:hover{ background:#000; transform: translateY(-1px) }
+.cta-btn.secondary{ background:#fff; color:#111; border:1px solid #e5e7eb }
+.cta-btn.secondary:hover{ box-shadow: 0 6px 16px rgba(0,0,0,.14); transform: translateY(-1px) }
+.cta-btn:focus-visible{ outline: 3px solid rgba(195,0,0,.28); outline-offset: 2px }
+
+@media (max-width: 640px){
+  .cta-card{ min-height: 300px }
+}
+.cta-title, .cta-sub, .cta-actions { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease }
+.cta-title { transition-delay: 60ms }
+.cta-sub { transition-delay: 140ms }
+.cta-actions { transition-delay: 220ms }
+.cta-overlay { /* al montar, el overlay está listo; forzamos la visibilidad del contenido */
+}
+.cta-overlay .cta-title,
+.cta-overlay .cta-sub,
+.cta-overlay .cta-actions { opacity: 1; transform: translateY(0) }
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .cta-title, .cta-sub, .cta-actions { transition: none !important; transform: none !important; opacity: 1 !important; }
+}

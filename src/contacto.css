@@ -7,12 +7,19 @@
   --shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
   --radius: 16px;
   --brand: #ef4444; /* red-500 */
+  /* Gradientes rojos unificados para toda la página */
+  --gradients-red: 
+    radial-gradient(900px circle at 12% 10%, rgba(239, 68, 68, 0.12), transparent 42%),
+    radial-gradient(780px circle at 88% 82%, rgba(239, 68, 68, 0.10), transparent 46%);
 }
 
 .contacto-page {
-  background: var(--bg);
+  position: relative;
   color: var(--text);
   min-height: 100vh;
+  /* Fondo blanco con gradientes rojos unificados */
+  background: var(--gradients-red), linear-gradient(180deg, #ffffff 0%, #ffffff 100%);
+  background-attachment: fixed; /* que el gradiente se perciba continuo entre secciones */
 }
 
 .contact-grid {

@@ -2,6 +2,7 @@ import Navbar from './navbar'
 import Hero from './hero'
 import Stats from './estadisticas.jsx'
 import Services from './services.jsx'
+import CTA from './cta.jsx'
 import Footer from './footer'
 import Contact from './contact'
 
@@ -16,6 +17,7 @@ function App() {
       <Hero />
       <Stats />
       <Services />
+      <CTA />
       <Contact />
       <Footer />
     </div>

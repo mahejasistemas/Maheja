@@ -16,16 +16,15 @@ const Hero = () => {
         <div className="hero-content-side">
           <div className="hero-content">
             <h1 className="hero-title animate-fade-up" style={{ background: 'linear-gradient(90deg, #ff416c, #ff0000)', WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent' }}>
-             Transporta tu carga<br />
-              con confianza 
+             Transporte de carga rapido, seguro  y sin complicaciones
             </h1>
             <p className="hero-subtitle animate-fade-up-delay-1" style={{ color: 'white' }}>
-              Desde contenedores hasta maquinaria pesada.<br />
-              Cotiza tu flete hoy o rastrea tu envío en tiempo real
+              Transporte de Mercancias en modadidad full o sencillos<br />
+              Tolvas y Contenedores 
             </p>
             <div className="hero-actions animate-fade-up-delay-2">
               <a href="#join" className="hero-cta">
-                Join Today
+                Cotiza ahora
                 <svg className="hero-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M8 1L15 8L8 15M15 8H1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>

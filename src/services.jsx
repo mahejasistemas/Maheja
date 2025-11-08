@@ -5,13 +5,10 @@ const pad2 = (n) => String(n).padStart(2, '0')
 
 export default function Services() {
   const features = useMemo(() => ([
-    { title: 'Customization', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
-    { title: 'Collaboration', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
-    { title: 'Security', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
-    { title: 'Automation', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
-    { title: 'Performance', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
-    { title: 'Analytics', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
-    { title: 'Support', desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore, quae!' },
+    { title: 'Modalidad Full', desc: 'Doble remolque para mayor capacidad y eficiencia en rutas largas.' },
+    { title: 'Modalidad Sencillo', desc: 'Remolque único ideal para operaciones estándar y entregas regionales.' },
+    { title: 'Transporte en Tolvas', desc: 'Soluciones para carga a granel: granos, minerales y materiales sólidos.' },
+    { title: 'Transporte de Contenedores', desc: 'Movilización de contenedores de 20/40 ft con servicio intermodal.' },
   ]), [])
 
   const pageSize = 3
@@ -35,13 +32,13 @@ export default function Services() {
   }, [totalPages])
 
   return (
-    <section className="services-section" id="servicios">
+    <section className="services-section" id="servicios" role="region" aria-label="Servicios de transporte">
       <div className="services-container">
         <div className="services-header" aria-live="polite">
-          <span className="services-badge">Servicios</span>
-          <h2 className="services-title">Explora nuestros servicios</h2>
-          <div className="services-meta">
-            <span className="meta-label"></span>
+          <span className="services-badge">Transporte de mercancías</span>
+          <h2 className="services-title">Servicios: Full, Sencillo, Tolvas y Contenedores</h2>
+          <div className="services-meta" aria-describedby="services-meta-desc">
+            <span id="services-meta-desc" className="meta-label">Explora nuestros servicios</span>
             <div className="meta-controls">
               <span className="meta-count">{pad2(page + 1)}</span>
               <div className="meta-progress" aria-hidden>
@@ -60,7 +57,11 @@ export default function Services() {
 
         <div className="features-grid">
           {visible.map((f, i) => (
-            <article className="feature-card" key={`${f.title}-${i}`}>
+            <article
+              className="feature-card"
+              style={{ ['--d']: `${i * 90}ms` }}
+              key={`${f.title}-${i}`}
+            >
               <div className="feature-icon" aria-hidden>
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <circle cx="12" cy="12" r="9" />

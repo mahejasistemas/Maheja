@@ -12,7 +12,7 @@ export default function Stats() {
     return () => io.disconnect()
   }, [])
 
-  const Metric = ({ to, suffix, label, decimals = 0 }) => {
+  const Metric = ({ to, suffix, label, decimals = 0, delay = 0 }) => {
     const [val, setVal] = useState(0)
     const raf = useRef()
     useEffect(() => {
@@ -30,15 +30,15 @@ export default function Stats() {
     }, [inView, to])
     const formatted = decimals ? val.toFixed(decimals) : Math.round(val)
     return (
-      <div className="est-metric">
+      <div className="est-metric" style={{ ['--d']: `${delay}ms` }}>
         <div className="est-metric-value">{formatted}{suffix}</div>
         <div className="est-metric-label">{label}</div>
       </div>
     )
   }
 
-  const Card = ({ title, text, Icon }) => (
-    <div className="est-card">
+  const Card = ({ title, text, Icon, delay = 0 }) => (
+    <div className="est-card" style={{ ['--d']: `${delay}ms` }}>
       <div className="est-card-icon"><Icon /></div>
       <div>
         <h3 className="est-card-title">{title}</h3>
@@ -54,25 +54,31 @@ export default function Stats() {
   )
 
   return (
-    <section className="est-section" ref={sectionRef}>
+    <section
+      className="est-section"
+      ref={sectionRef}
+      role="region"
+      aria-label="Estadísticas y beneficios"
+      data-inview={inView}
+    >
       <div className="est-grid">
         <div className="est-left">
-          <span className="est-badge">Features</span>
-          <h2 className="est-title">Transform Your Digital Experience Today Together</h2>
-          <p className="est-sub">Leverage cutting-edge technology to streamline your workflow and unlock new possibilities in the digital landscape.</p>
-
+          <span className="est-badge">Estadisticas</span>
+          <h2 className="est-title">Transporta tu carga con confianza</h2>
+          <p className="est-sub">
+            Con mas de 15 años de experiencia en el transporte de mercancias, ofrecemos soluciones seguras y eficientes para tu carga.
+          </p>
           <div className="est-metrics">
-            <Metric to={2.5} suffix="M+" label="Users Served" decimals={1} />
-            <Metric to={99.9} suffix="%" label="Uptime" decimals={1} />
-            <Metric to={4.8} suffix="" label="User Score" decimals={1} />
+            <Metric to={50} suffix="+" label="Usuarios Satisfechos" decimals={0} delay={0} />
+            <Metric to={100} suffix="%" label="Calidad" decimals={0} delay={120} />
+            <Metric to={15} suffix="años" label="Experiencia" decimals={0} delay={240} />
           </div>
         </div>
-
         <div className="est-right">
-          <Card title="Cloud Integration" text="Seamless cloud solutions for modern business needs" Icon={IconBox} />
-          <Card title="24/7 Monitoring" text="Round-the-clock system monitoring and support" Icon={IconBox} />
-          <Card title="AI-Powered Tools" text="Advanced machine learning algorithms delivering intelligent insights" Icon={IconBox} />
-          <Card title="Enterprise Security" text="Military-grade encryption and advanced threat protection" Icon={IconBox} />
+          <Card title="Transporte de Mercancias" text="Ofrecemos un servicio de transporte de mercancias en modalidad full o sencilla, tanto para tolvas como para contenedores." Icon={IconBox} delay={0} />
+          <Card title="24/7 Servicio" text="Nuestro servicio está disponible 24 horas por día, 7 días por semana, para satisfacer tus necesidades de transporte." Icon={IconBox} delay={120} />
+          <Card title="Seguridad" text="Nos tomamos muy en serio la seguridad de nuestros clientes y sus mercancías. Utilizamos tecnología de vanguardia para proteger tus datos y tu carga." Icon={IconBox} delay={240} />
+          <Card title="Soporte Técnico" text="Nuestro equipo de soporte técnico está disponible 24 horas por día, 7 días por semana, para ayudarte en todo lo que necesites." Icon={IconBox} delay={360} />
         </div>
       </div>
     </section>
