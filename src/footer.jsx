@@ -3,7 +3,7 @@ import MahejaLogo from './assets/Maheja.svg';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" role="contentinfo" aria-label="Pie de página">
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
@@ -13,7 +13,7 @@ const Footer = () => {
             <p className="footer-tagline">Componentes hechos fácil.</p>
           </div>
           
-          <div className="footer-links">
+          <nav className="footer-links" aria-label="Enlaces del sitio">
             <div className="footer-column scroll-fade-up">
               <h3 className="footer-column-title">Enlaces Rápidos</h3>
               <ul className="footer-column-list">
@@ -51,13 +51,13 @@ const Footer = () => {
                 <li><a href="#linkedin" className="footer-link">Facebook</a></li>
               </ul>
             </div>
-          </div>
+          </nav>
         </div>
         
         <div className="footer-bottom">
           <p className="footer-copyright">© 2024 Maheja.com. Todos los derechos reservados.</p>
           <div>
-            <a href="MW" className="footer-legal-link">Made By MetaWeb Dev Solutions</a>
+            <a href="MW" className="footer-legal-link" target="_blank" rel="noopener noreferrer">Made By MetaWeb Dev Solutions</a>
           </div>
           <div className="footer-legal">
             <a href="#terms" className="footer-legal-link">Términos y Condiciones</a>

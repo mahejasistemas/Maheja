@@ -1,20 +1,20 @@
 .footer {
   background-color: #f8f9fa;
-  padding: 4rem 0 2rem 0;
+  padding: clamp(2rem, 6vw, 4rem) 0 clamp(1.25rem, 4vw, 2rem) 0;
   margin-top: auto;
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 clamp(1rem, 4vw, 3rem);
 }
 
 .footer-content {
   display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 4rem;
-  margin-bottom: 3rem;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: clamp(1.5rem, 4vw, 4rem);
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
 }
 
 .footer-brand {
@@ -31,7 +31,7 @@
 }
 
 .footer-logo-img {
-  height: 70px;
+  height: clamp(52px, 7vw, 70px);
   width: auto;
   max-width: 200px;
 }
@@ -51,12 +51,12 @@
 
 .footer-links {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: clamp(1rem, 3vw, 2rem);
 }
 
 .footer-column-title {
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 1.5rem 0;
@@ -76,6 +76,9 @@
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s ease;
+  line-height: 1.6;
+  padding: 4px 0;
+  display: inline-block;
 }
 
 .footer-link:hover {
@@ -88,6 +91,8 @@
   align-items: center;
   padding-top: 2rem;
   border-top: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .footer-copyright {
@@ -99,6 +104,7 @@
 .footer-legal {
   display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
 }
 
 .footer-legal-link {
@@ -166,4 +172,9 @@
   .footer-links {
     gap: 1.5rem;
   }
+}
+
+/* Accesibilidad y rendimiento */
+@media (prefers-reduced-motion: reduce) {
+  .footer-link { transition: none !important; }
 }
