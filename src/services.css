@@ -2,7 +2,7 @@
 
 .services-section {
   color: #0b0f19;
-  padding: 110px 0 92px;
+  padding: clamp(72px, 10vh, 110px) 0 clamp(56px, 8vh, 92px);
   /* Fondo claro con gradientes rojos unificados */
   background: var(--gradients-red), linear-gradient(180deg, #f8f9fb 0%, #ffffff 100%);
   background-attachment: fixed;
@@ -11,7 +11,7 @@
 .services-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 32px);
 }
 
 .services-header { text-align: center; margin-bottom: 40px; }
@@ -37,11 +37,13 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 .meta-label { color: #6b7280; font-weight: 600; }
 .meta-controls { display: inline-flex; align-items: center; gap: 12px; }
 .meta-count, .meta-total { font-size: 12px; color: #6b7280; font-weight: 600; }
-.meta-progress { width: 160px; height: 3px; background: #e5e7eb; border-radius: 999px; position: relative; overflow: hidden; }
+.meta-progress { width: clamp(120px, 22vw, 160px); height: 3px; background: #e5e7eb; border-radius: 999px; position: relative; overflow: hidden; }
 .meta-progress-fill {
   position: absolute; left: 0; top: 0; height: 100%;
   background: linear-gradient(90deg, #c30000, #ef4444);
@@ -56,8 +58,8 @@
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 3vw, 24px);
   margin-top: 24px;
 }
 
@@ -85,11 +87,24 @@
 .feature-desc { color: #6b7280; font-size: 14px; margin: 0; }
 
 @media (max-width: 1024px) {
-  .features-grid { grid-template-columns: repeat(2, 1fr); gap: 20px }
+  .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px }
+}
+@media (max-width: 768px) {
+  .services-meta { gap: 14px; align-items: flex-start; }
+  .meta-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  .meta-progress { width: 100%; max-width: 320px; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 640px) {
   .services-meta { flex-direction: column; gap: 14px; align-items: flex-start; }
+  .meta-controls { width: 100%; gap: 10px }
+  .meta-btn { width: 44px; height: 44px }
   .features-grid { grid-template-columns: 1fr; gap: 16px }
+  .feature-card { padding: 18px 18px 20px }
+}
+@media (max-width: 420px) {
+  .feature-title { font-size: 18px }
+  .feature-desc { font-size: 13px }
 }
 /* Variables globales para gradientes rojos unificados */
 :root {

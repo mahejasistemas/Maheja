@@ -11,7 +11,7 @@ export default function Services() {
     { title: 'Transporte de Contenedores', desc: 'Movilización de contenedores de 20/40 ft con servicio intermodal.' },
   ]), [])
 
-  const pageSize = 3
+  const [pageSize, setPageSize] = useState(3)
   const totalPages = Math.ceil(features.length / pageSize)
   const [page, setPage] = useState(0)
 
@@ -30,6 +30,20 @@ export default function Services() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [totalPages])
+
+  // Ajustar pageSize según ancho de pantalla para mejorar experiencia móvil
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 640px)')
+    const apply = () => setPageSize(mql.matches ? 2 : 3)
+    apply()
+    mql.addEventListener('change', apply)
+    return () => mql.removeEventListener('change', apply)
+  }, [])
+
+  // Asegurar que la página actual siga siendo válida si cambia pageSize
+  useEffect(() => {
+    if (page >= totalPages) setPage(totalPages - 1)
+  }, [pageSize, totalPages])
 
   return (
     <section className="services-section" id="servicios" role="region" aria-label="Servicios de transporte">
